@@ -1,0 +1,16 @@
+{
+	"nodes":[
+		{"name":"Freddie Freeloader","group":1,"mag":20,"type":"user"},
+		{"name":"Johhny Coal","group":1,"mag":40,"type":"user"},
+		{"name":"Highlands University","group":1,"mag":20,"type":"university"},
+		{"name":"Prince Perfect","group":1,"mag":10,"type":"user"},
+		{"name":"How Tos","group":2,"mag":10,"type":"book"},
+		{"name":"HNLab","group":2,"mag":10,"type":"flask"}
+	],
+	"links":[
+		{"source":0,"target":1,"mag":"1"},
+		{"source":1,"target":2,"mag":"1"},
+		{"source":3,"target":1,"mag":"1"},
+		{"source":4,"target":3,"mag":"1"}
+	]
+}

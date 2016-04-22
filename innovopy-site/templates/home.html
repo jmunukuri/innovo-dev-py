@@ -1,0 +1,50 @@
+<!-- home.html -->
+{% extends "base.html" %}
+{% load staticfiles %}
+{% block title %} {{ block.super }} Home{% endblock title %}
+{% block head %}
+    {{ block.super }}
+	<style>
+		.link {
+			stroke: #ccc;
+		}
+
+		.node circle {
+			fill: #fff;
+			stroke: #ccc; stroke-width: 1.5px;
+		}
+
+		.node foreignObject {
+			stroke: #fff; stroke-width: 1.5px;
+		}
+
+		.node text {
+			pointer-events: none;
+			font: 10px sans-serif;
+		}		
+	</style>
+{% endblock head %}
+
+
+{% block page_header_row %}
+	<div id="navbar" class="navbar-fixed navbar-left">
+		<ul class="nav navbar-nav">
+			<li><a href="#" class="">home</a></li>
+			<li><a href="#" class="">details</a></li>
+		</ul>
+	</div><!--/.navbar-collapse -->
+{% endblock page_header_row %}
+
+
+{% block page_body_row %}
+	<div class="col-md-12 content text-center">
+		
+		<!-- Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris sit amet lobortis ante. Aliquam vel odio vel dolor consectetur convallis nec sit amet enim. Aliquam quis dui a nibh suscipit dictum vitae vel felis. Nulla sed magna non magna sodales rutrum. Proin est mi, hendrerit et diam gravida, posuere euismod mauris. Donec posuere dui non ante fermentum, ut mattis ante auctor. Aenean at lobortis nisi, vitae bibendum turpis. Morbi pulvinar magna risus, eu bibendum mauris consectetur nec. Nullam aliquet faucibus interdum. -->
+			
+	</div>
+{% endblock page_body_row %}
+
+{% block js_include %}
+	<script src="{% static 'js/d3.min.js' %}" charset="utf-8"></script>
+	<script src="{% static 'js/graph-home.js' %}" charset="utf-8"></script>
+{% endblock js_include %}

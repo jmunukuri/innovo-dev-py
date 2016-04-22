@@ -1,0 +1,24 @@
+/*base.css*/
+
+body {
+	padding-top: 60px;
+}
+
+.navbar {
+	background-image: none;
+	border: none;
+	background-color: #fff;
+	color: gray;
+	border-bottom: 1px solid #C4C0BF;
+}
+
+.navbar-toggle { background-color: #C4C0BF; }
+.navbar-toggle .icon-bar { background-color: #000; }
+
+.navbar a { color: gray; }
+.navbar a:visited { color: gray; }
+.navbar a:hover { color: black; font-size: 1.4em; }
+
+.header_row {}
+.content_row { padding-bottom: 60px; }
+.footer_row { background-color: #C4C0BF; }

@@ -1,0 +1,77 @@
+<!-- base.html -->
+{% load staticfiles %}
+
+
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>{% block title %}Innovonet v2 · {% endblock title %}</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+	<!-- Latest compiled and minified CSS -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+
+	<!-- Optional theme -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css" integrity="sha384-fLW2N01lMqjakBkx3l/M9EahuwpSfeNvV63J5ezn3uZzapT0u7EYsXMjQV+0En5r" crossorigin="anonymous">
+
+	<!-- Font Awesome -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css">
+    
+    <!-- Custom -->
+    {% block head %}
+    	<link rel="stylesheet" type="text/css" href="{% static "css/base.css" %}">
+    {% endblock head %}
+</head>
+
+<body>
+
+    <nav class="navbar navbar-fixed-top">
+		<div class="container-fluid">
+			
+			<div class="navbar-header">		
+				
+				<a type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+					<span class="sr-only">Toggle navigation</span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+				</a>
+
+				<a class="navbar-brand" href="#">Innovo2</a>	
+			
+			</div>
+
+			<div id="navbar" class="navbar-header navbar-collapse collapse navbar-right ">
+				
+				<ul class="nav navbar-nav">
+					{% if request.path == "/" %} <li><a href="#" class="">home</a></li>{% endif %}
+					<li><a href="{% url 'about' %}" class="">about</a></li>
+					<li><a href="{% url 'contact' %}" class="">contact</a></li>
+					<li><a href="#" class=""><i class="fa fa-user"></i> You</a></li>
+				</ul>
+			
+			</div><!--/.navbar-collapse -->
+			
+
+		</div>
+    </nav>
+    <div class="container-fluid">
+		<div class="row header_row">{% block page_header_row %}{% endblock page_header_row %}</div>
+
+		<div class="row content_row">{% block page_body_row %}{% endblock page_body_row %}</div>
+
+		<div class="navbar-fixed-bottom footer_row">{% block page_footer_row %}Footer{% endblock page_footer_row %}</div>
+	</div>
+
+
+<!-- Base js -->
+	<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    
+    <!-- Latest compiled and minified Bootstrap JavaScript -->
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+
+	{% block js_include %}{% endblock js_include %}
+</body>
+</html>	
