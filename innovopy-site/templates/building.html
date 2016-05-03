@@ -1,0 +1,23 @@
+<!-- building.html -->
+{% extends "base.html" %}
+{% load staticfiles %}
+{% block title %} {{ block.super }} Building{% endblock title %}
+
+{% block page_header_row %}
+	<div id="navbar" class="navbar-fixed navbar-left">
+		<ul class="nav navbar-nav">
+			<li><a href="#" class="">item 1</a></li>
+			<li><a href="#" class="">item 2</a></li>
+		</ul>
+	</div><!--/.navbar-collapse -->
+{% endblock page_header_row %}
+
+
+{% block page_body_row %}
+	<div class="col-md-12 content text-center">
+		
+	{{ object }}
+			
+	</div>
+	
+{% endblock page_body_row %}

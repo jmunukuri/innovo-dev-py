@@ -1,0 +1,22 @@
+<!-- innovosite-list.html -->
+{% extends "base.html" %}
+{% load staticfiles %}
+{% block title %} {{ block.super }} Sub Orgs{% endblock title %}
+
+{% block page_header_row %}{% endblock page_header_row %}
+
+
+{% block page_body_row %}
+	<div class="col-md-12 content text-center">
+	{% for object in object_list %}	
+		<a href="{% url 'innovosite' object.id %}">
+		<div class="thumbnail text-left">
+			<p>{{ object.name }}</p>
+			<p>{{ object.description }}</p>
+			<p>{{ object.url }}</p>
+			<p>{{ object.address }}</p>			
+		</div>
+		</a>
+	{% endfor %}
+	</div>
+{% endblock page_body_row %}

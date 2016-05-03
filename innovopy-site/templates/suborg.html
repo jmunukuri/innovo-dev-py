@@ -1,0 +1,23 @@
+<!-- suborg.html -->
+{% extends "base.html" %}
+{% load staticfiles %}
+{% block title %} {{ block.super }} Sub Org{% endblock title %}
+
+{% block page_header_row %}
+	<div id="navbar" class="navbar-fixed navbar-left">
+		<ul class="nav navbar-nav">
+			<li><a href="{% url 'innovosite' object.org_site.id %}" class="">{{ object.org_site }}</a></li>
+		</ul>
+	</div><!--/.navbar-collapse -->
+	<div class="col-md-12"><h2>{{ object.name }}</h2></div>
+{% endblock page_header_row %}
+
+
+{% block page_body_row %}
+	<div class="col-md-12 content">
+		
+	{% for asset in assets %} <p><a href="{% url 'asset' asset.id %}" class="btn btn-xs">{{ asset.title }}</a></p> {% endfor %}
+			
+	</div>
+	
+{% endblock page_body_row %}

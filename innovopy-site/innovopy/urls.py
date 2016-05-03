@@ -17,10 +17,23 @@ from django.conf.urls import url
 from django.contrib import admin
 
 from core.views import HomeView, AboutView, ContactView
+from innovosite.views import InnovositeView, InnovositeListView
+from innovosite.views import SubOrganizationView, SubOrganizationListView, BuildingView
+from asset.views import AssetView
 
 urlpatterns = [
 	url(r'^$', HomeView.as_view(), name='home'),
 	url(r'^about/$', AboutView.as_view(), name='about'),
 	url(r'^contact/$', ContactView.as_view(), name='contact'),
+    
+    url(r'^innovo-sites/$', InnovositeListView.as_view(), name='innovosite_list'),
+    url(r'^innovo/(?P<pk>[0-9]+)/$', InnovositeView.as_view(), name='innovosite'),
+    
+    url(r'^units/$', SubOrganizationListView.as_view(), name='unit_list'),
+    url(r'^unit/(?P<pk>[0-9]+)/$', SubOrganizationView.as_view(), name='unit'),
+    
+    url(r'^building/(?P<pk>[0-9]+)/$', BuildingView.as_view(), name='building'),
+    url(r'^asset/(?P<pk>[0-9]+)/$', AssetView.as_view(), name='asset'),
+    
     url(r'^admin/', admin.site.urls),
 ]

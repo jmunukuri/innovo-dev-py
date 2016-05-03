@@ -1,0 +1,15 @@
+<!-- innovosite.html -->
+{% extends "base.html" %}
+{% load staticfiles %}
+{% block title %} {{ block.super }} Sub Org{% endblock title %}
+
+{% block page_header_row %}
+	<div class="col-md-12"><h2>{{ object.name }}</h2></div>
+{% endblock page_header_row %}
+
+
+{% block page_body_row %}
+	<div class="col-md-6 content">	
+	{% for org in suborgs %} <p><a href="{% url 'unit' org.id %}" class="btn btn-xs">{{ org.name }}</a></p> {% endfor %}	
+	</div>	
+{% endblock page_body_row %}

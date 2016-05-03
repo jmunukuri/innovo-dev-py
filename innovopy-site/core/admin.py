@@ -1,3 +1,8 @@
 from django.contrib import admin
 
-# Register your models here.
+from .models import InnovoUser, Category, InnovoTag, CpvCode
+
+admin.site.register(InnovoUser)
+admin.site.register(Category)
+admin.site.register(InnovoTag)
+admin.site.register(CpvCode)

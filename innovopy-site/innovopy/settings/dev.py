@@ -25,6 +25,8 @@ DEBUG = True
 
 ALLOWED_HOSTS = []
 
+USE_TZ = False
+
 # Database
 # https://docs.djangoproject.com/en/1.9/ref/settings/#databases
 
@@ -38,3 +40,5 @@ DATABASES = {
         'PORT': '5432',
     }
 }
+
+# STATIC_ROOT = os.path.join(PROJ_DIR.child('static'))

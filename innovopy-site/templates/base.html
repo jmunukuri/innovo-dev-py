@@ -6,7 +6,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>{% block title %}Innovonet v2 · {% endblock title %}</title>
+    <title>{% block title %}innovonet v2 · {% endblock title %}</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     
 	<!-- Latest compiled and minified CSS -->
@@ -38,16 +38,16 @@
 					<span class="icon-bar"></span>
 				</a>
 
-				<a class="navbar-brand" href="#">Innovo2</a>	
+				<a class="navbar-brand" href="/">i<sup>2</sup></a>	
 			
 			</div>
 
 			<div id="navbar" class="navbar-header navbar-collapse collapse navbar-right ">
 				
 				<ul class="nav navbar-nav">
-					{% if request.path == "/" %} <li><a href="#" class="">home</a></li>{% endif %}
-					<li><a href="{% url 'about' %}" class="">about</a></li>
-					<li><a href="{% url 'contact' %}" class="">contact</a></li>
+					<li><a href="{% url 'innovosite_list' %}" class="{% if request.path == "/innovo-sites/" %}bg-gray{% endif %}">sites</a></li>
+					<li><a href="{% url 'about' %}" class="{% if request.path == "/about/" %}bg-gray{% endif %}">about</a></li>
+					<li><a href="{% url 'contact' %}" class="{% if request.path == "/contact/" %}bg-gray{% endif %}">contact</a></li>
 					<li><a href="#" class=""><i class="fa fa-user"></i> You</a></li>
 				</ul>
 			

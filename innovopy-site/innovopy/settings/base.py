@@ -40,6 +40,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
 
     'core',
+    'innovosite',
+    'asset',
 ]
 
 MIDDLEWARE_CLASSES = [
@@ -59,7 +61,7 @@ TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
         'DIRS': [PROJ_DIR.child('templates')],
-        'APP_DIRS': False,
+        'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
                 'django.template.context_processors.debug',
@@ -124,3 +126,4 @@ STATICFILES_DIRS = [
     os.path.join(PROJ_DIR.child('static'))
 ]
 STATIC_URL = '/static/'
+

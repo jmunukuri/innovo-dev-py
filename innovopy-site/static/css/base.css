@@ -22,3 +22,6 @@ body {
 .header_row {}
 .content_row { padding-bottom: 60px; }
 .footer_row { background-color: #C4C0BF; }
+
+/*background colors*/
+.bg-gray {background-color: #BDBDBD;}

@@ -1,0 +1,22 @@
+<!-- asset.html -->
+{% extends "base.html" %}
+{% load staticfiles %}
+{% block title %} {{ block.super }} Asset{% endblock title %}
+
+{% block page_header_row %}
+	<div id="navbar" class="navbar-fixed navbar-left">
+		<ul class="nav navbar-nav">
+			<li><a href="{% url 'unit' object.organization.id %}" class="">{{ object.organization }}</a></li>
+		</ul>
+	</div><!--/.navbar-collapse -->
+{% endblock page_header_row %}
+
+
+{% block page_body_row %}
+	<div class="col-md-12 content">
+		{% for k, v in asset_properties.items %}
+			<p>{{ k }}: {{ v }}</p>
+
+		{% endfor %}
+	</div>
+{% endblock page_body_row %}
