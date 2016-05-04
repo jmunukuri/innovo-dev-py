@@ -6,7 +6,7 @@
 {% block page_header_row %}
 	<div id="navbar" class="navbar-fixed navbar-left">
 		<ul class="nav navbar-nav">
-			<li><a href="{% url 'innovosite' object.org_site.id %}" class="">{{ object.org_site }}</a></li>
+			<li><a href="{% url 'innovosite' object.org_site.id %}" class="clean">{{ object.org_site }}</a></li>
 		</ul>
 	</div><!--/.navbar-collapse -->
 	<div class="col-md-12"><h2>{{ object.name }}</h2></div>
@@ -16,7 +16,7 @@
 {% block page_body_row %}
 	<div class="col-md-12 content">
 		
-	{% for asset in assets %} <p><a href="{% url 'asset' asset.id %}" class="btn btn-xs">{{ asset.title }}</a></p> {% endfor %}
+	{% for asset in assets %} <p><a href="{% url 'asset' asset.id %}" class="btn btn-xs clean">{{ asset.title }}</a></p> {% endfor %}
 			
 	</div>
 	

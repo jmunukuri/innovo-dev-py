@@ -10,6 +10,6 @@
 
 {% block page_body_row %}
 	<div class="col-md-6 content">	
-	{% for org in suborgs %} <p><a href="{% url 'unit' org.id %}" class="btn btn-xs">{{ org.name }}</a></p> {% endfor %}	
+	{% for org in suborgs %} <p><a href="{% url 'unit' org.id %}" class="btn btn-xs clean">{{ org.name }}</a></p> {% endfor %}	
 	</div>	
 {% endblock page_body_row %}

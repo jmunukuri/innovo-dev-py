@@ -9,13 +9,13 @@
 {% block page_body_row %}
 	<div class="col-md-12 content text-center">
 	{% for object in object_list %}	
-		<a href="{% url 'innovosite' object.id %}">
-		<div class="thumbnail text-left">
-			<p>{{ object.name }}</p>
-			<p>{{ object.description }}</p>
-			<p>{{ object.url }}</p>
-			<p>{{ object.address }}</p>			
-		</div>
+		<a href="{% url 'innovosite' object.id %}" class="clean">
+			<div class="thumbnail text-left">
+				<p>{{ object.name }}</p>
+				<p>{{ object.description }}</p>
+				<p>{{ object.url }}</p>
+				<p>{{ object.address }}</p>			
+			</div>
 		</a>
 	{% endfor %}
 	</div>

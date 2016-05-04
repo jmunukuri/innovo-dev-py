@@ -4,6 +4,13 @@ body {
 	padding-top: 60px;
 }
 
+
+a.clean:visited { color: gray; }
+a.clean:hover { color: black; background-color: #BDBDBD; text-decoration: none; }
+a.clean:link { color: gray; text-decoration: none; }
+
+
+
 .navbar {
 	background-image: none;
 	border: none;
