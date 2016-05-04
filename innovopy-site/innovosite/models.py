@@ -1,6 +1,7 @@
 from __future__ import unicode_literals
 
 from django.db import models
+from core.models import DocumentFile
 
 
 class Innovosite(models.Model):
@@ -11,6 +12,8 @@ class Innovosite(models.Model):
     zipcode = models.IntegerField(null=True, blank=True)
     lat = models.FloatField(null=True, blank=True)
     lon = models.FloatField(null=True, blank=True)
+
+    documents = models.ManyToManyField(DocumentFile, related_name='site_documents', blank=True)
 
     def get_absolute_url(self):
         return reverse('innovosite', args=[self.id])
@@ -27,6 +30,8 @@ class SubOrganization(models.Model):
     address = models.TextField(null=True, blank=True)
     org_site = models.ForeignKey(Innovosite, related_name = 'suborganizations')
     org_parent = models.ForeignKey('SubOrganization', null=True, blank=True)
+
+    documents = models.ManyToManyField(DocumentFile, related_name='organization_documents')
     
     def get_absolute_url(self):
         return reverse('unit', args=[self.id])
@@ -44,6 +49,8 @@ class Building(models.Model):
     lon = models.FloatField(null=True, blank=True)
     building_site = models.ForeignKey(Innovosite)
 
+    documents = models.ManyToManyField(DocumentFile, related_name='building_documents')
+    
     def get_absolute_url(self):
         return reverse('building', args=[self.id])
 

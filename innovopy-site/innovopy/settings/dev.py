@@ -33,7 +33,7 @@ USE_TZ = False
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'innovodevdb',
+        'NAME': 'innovodevdb2',
         'USER': 'dbuser',
         'PASSWORD': '1',
         'HOST': '127.0.0.1',

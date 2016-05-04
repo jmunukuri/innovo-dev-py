@@ -23,6 +23,7 @@ site = Innovosite.objects.get(pk=1)
 
 # SubOrganizations
 def migrate_suborgs():
+    global site
     f = open("innovo-migrate/ou.json", "r")
     d = f.read()
     f.close()
@@ -34,6 +35,7 @@ def migrate_suborgs():
 
 # Buildings
 def migrate_buildings():
+    global site
     f = open("innovo-migrate/building.json", "r")
     d = f.read()
     f.close()
@@ -359,7 +361,6 @@ def migrate_cpv_codes():
         data_obj = CpvCode(cpv_id=row['cpv_id'], name=row['name'])
         data_obj.save()
 
-
 def migrate_users():
     assets = Asset.objects.all()
     user_set = set()
@@ -384,6 +385,15 @@ def migrate_users():
             except Exception as e:
                 print e
 
+def run_migration_procs():
+    migrate_suborgs()
+    migrate_buildings()
+    migrate_items()
+    migrate_categories()
+    migrate_tags()
+    migrate_cpv_codes()
+    migrate_users()
+    print "done."
 
 
 data_assets = {}

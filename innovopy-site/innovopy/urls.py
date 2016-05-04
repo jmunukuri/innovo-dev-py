@@ -15,6 +15,8 @@ Including another URLconf
 """
 from django.conf.urls import url
 from django.contrib import admin
+from django.conf import settings
+from django.conf.urls.static import static
 
 from core.views import HomeView, AboutView, ContactView
 from innovosite.views import InnovositeView, InnovositeListView
@@ -36,4 +38,5 @@ urlpatterns = [
     url(r'^asset/(?P<pk>[0-9]+)/$', AssetView.as_view(), name='asset'),
     
     url(r'^admin/', admin.site.urls),
-]
+
+] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

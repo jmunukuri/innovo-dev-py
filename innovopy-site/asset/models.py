@@ -4,69 +4,70 @@ from collections import OrderedDict
 
 from django.db import models
 
-from innovosite.models import Innovosite, SubOrganization, Building  
+from innovosite.models import Innovosite, SubOrganization, Building 
+from core.models import DocumentFile 
 
 
 class Asset(models.Model):
-    title = models.CharField(max_length=256, null=True)
-    manufacturer = models.CharField(max_length=256, null=True)
-    model_name = models.CharField(max_length=256, null=True)
-    short_desc = models.CharField(max_length=256, null=True)
-    full_desc = models.TextField(null=True)
-    
-    organization = models.ForeignKey(SubOrganization, null=True, related_name="assets")
-    building =  models.ForeignKey(Building, null=True)
+    title = models.CharField(max_length=256, null=True, blank=True)
+    organization = models.ForeignKey(SubOrganization, null=True, related_name="assets", blank=True)
+    building =  models.ForeignKey(Building, null=True, blank=True)
+    room = models.CharField(max_length=256, null=True, blank=True)
+    model_name = models.CharField(max_length=256, null=True, blank=True)
+    manufacturer = models.CharField(max_length=256, null=True, blank=True)
+    manufacturer_website = models.CharField(max_length=256, null=True, blank=True)
+    short_desc = models.CharField(max_length=256, null=True, blank=True)
+    full_desc = models.TextField(null=True, blank=True)
+    keywords = models.TextField(null=True, blank=True)
+    image = models.ImageField(null=True, blank=True)
+    contact_1_name = models.CharField(max_length=256, null=True, blank=True)
+    contact_1_email = models.CharField(max_length=256, null=True, blank=True)
+    contact_2_name = models.CharField(max_length=256, null=True, blank=True)
+    contact_2_email = models.CharField(max_length=256, null=True, blank=True)
+    comments = models.TextField(null=True, blank=True)
 
-    date_added = models.DateTimeField(null=True)
-    date_updated = models.DateTimeField(null=True)
-    PAT = models.DateTimeField(null=True)
-    last_calibration_date = models.DateTimeField(null=True)
-    next_calibration_date = models.DateTimeField(null=True) 
-    date_of_purchase = models.DateTimeField(null=True)
-    date_disposed_of = models.DateTimeField(null=True)
-    end_of_life = models.DateTimeField(null=True)
-    date_archived = models.DateTimeField(null=True)
+    related_media = models.ManyToManyField(DocumentFile, blank=True)
 
-    room = models.CharField(max_length=256, null=True)
-    specification = models.TextField(null=True)
-    upgrades = models.TextField(null=True)
-    future_upgrades = models.TextField(null=True)
-    acronym = models.CharField(max_length=24, null=True)
-    keywords = models.TextField(null=True)
-    technique = models.CharField(max_length=256, null=True)
-    availability = models.CharField(max_length=256, null=True)
-    restrictions = models.CharField(max_length=256, null=True)
-    usergroup = models.CharField(max_length=256, null=True)
+    date_added = models.DateTimeField(auto_now_add=True, null=True, blank=True)
+    date_updated = models.DateTimeField(null=True, blank=True)
+    date_of_purchase = models.DateTimeField(null=True, blank=True)
+    date_disposed_of = models.DateTimeField(null=True, blank=True)
+    date_archived = models.DateTimeField(null=True, blank=True)   
+    end_of_life = models.DateTimeField(null=True, blank=True)
+    last_calibration_date = models.DateTimeField(null=True, blank=True)
+    next_calibration_date = models.DateTimeField(null=True, blank=True) 
+    PAT = models.DateTimeField(null=True, blank=True)
     
-    portability = models.CharField(max_length=256, null=True) 
-    
-    image = models.CharField(max_length=256, null=True)
-    contact_1_name = models.CharField(max_length=256, null=True)
-    contact_1_email = models.CharField(max_length=256, null=True)
-    contact_2_name = models.CharField(max_length=256, null=True)
-    contact_2_email = models.CharField(max_length=256, null=True)
-    manufacturer_website = models.CharField(max_length=256, null=True)
-    copyright_notice = models.CharField(max_length=256, null=True)
-    last_updated_username = models.CharField(max_length=256, null=True)
-    last_updated_email = models.CharField(max_length=256, null=True)
-    training_required = models.IntegerField(null=True)
-    training_provided = models.IntegerField(null=True)
+    acronym = models.CharField(max_length=24, null=True, blank=True)
+    archived = models.IntegerField(null=True, blank=True, default=0)
+    asset_no = models.CharField(max_length=256, null=True, blank=True)
+    availability = models.CharField(max_length=256, null=True, blank=True)
+    calibrated = models.CharField(max_length=4, null=True, blank=True)
+    copyright_notice = models.CharField(max_length=256, null=True, blank=True)
+    cost = models.CharField(max_length=256, null=True, blank=True) 
+    embedded_content = models.TextField(null=True, blank=True)
+    finance_id = models.CharField(max_length=256, null=True, blank=True)
+    future_upgrades = models.TextField(null=True, blank=True)
+    is_disposed_of = models.CharField(max_length=5, null=True, blank=True)
+    is_parent = models.IntegerField(null=True, blank=True, default=0)
+    last_updated_username = models.CharField(max_length=256, null=True, blank=True)
+    last_updated_email = models.CharField(max_length=256, null=True, blank=True)
+    maintenance = models.CharField(max_length=256, null=True, blank=True)
+    portability = models.CharField(max_length=256, null=True, blank=True) 
     quantity = models.IntegerField(default=1)
-    quantity_detail = models.CharField(max_length=256, null=True)
-    calibrated = models.CharField(max_length=4, null=True)
-    asset_no = models.CharField(max_length=256, null=True)
-    finance_id = models.CharField(max_length=256, null=True)
-    serial_no = models.CharField(max_length=256, null=True)
-    year_of_manufacture = models.IntegerField(null=True)
-    supplier_id = models.IntegerField( null=True)
-    cost = models.CharField(max_length=256, null=True) 
-    replacement_cost = models.CharField(max_length=256, null=True) 
-    maintenance = models.CharField(max_length=256, null=True)
-    is_disposed_of = models.CharField(max_length=5, null=True)
-    comments = models.TextField(null=True)
-    archived = models.IntegerField(null=True, default=0)
-    is_parent = models.IntegerField(null=True, default=0)
-    embedded_content = models.TextField(null=True)
+    quantity_detail = models.CharField(max_length=256, null=True, blank=True)
+    replacement_cost = models.CharField(max_length=256, null=True, blank=True) 
+    restrictions = models.CharField(max_length=256, null=True, blank=True)
+    serial_no = models.CharField(max_length=256, null=True, blank=True)
+    specification = models.TextField(null=True, blank=True)
+    supplier_id = models.IntegerField( null=True, blank=True)
+    technique = models.CharField(max_length=256, null=True, blank=True)
+    training_required = models.IntegerField(null=True, blank=True)
+    training_provided = models.IntegerField(null=True, blank=True)
+    upgrades = models.TextField(null=True, blank=True)
+    usergroup = models.CharField(max_length=256, null=True, blank=True)  
+    year_of_manufacture = models.IntegerField(null=True, blank=True)
+
 
     def get_as_dict_selected(self, fieldlist=None):
         d = OrderedDict()
@@ -89,6 +90,9 @@ class Asset(models.Model):
 
     def __unicode__(self):
         return self.title
+
+
+
 
 
 """ TODO: Modeling associations"""

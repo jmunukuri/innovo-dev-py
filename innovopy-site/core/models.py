@@ -3,8 +3,16 @@ from __future__ import unicode_literals
 from django.db import models
 from django.contrib.auth.models import User
 
+
+class DocumentFile(models.Model):
+    file = models.FileField(null=True)
+
+    def __unicode__(self):
+        return self.file.name
+
 class InnovoUser(models.Model):
     user = models.OneToOneField(User)
+    photo = models.ImageField(null=True)
 
     def __unicode__(self):
         return self.user
@@ -12,16 +20,10 @@ class InnovoUser(models.Model):
 
 class Publication(models.Model):
     title = models.CharField(max_length=255)
-    url = models.URLField()
-    bibtex = models.TextField()
+    url = models.URLField(null=True)
+    bibtex = models.TextField(null=True)
+    file = models.FileField(null=True)
     
-    def __unicode__(self):
-        return self.title
-
-
-class Document(models.Model):
-    pass
-
     def __unicode__(self):
         return self.title
 
