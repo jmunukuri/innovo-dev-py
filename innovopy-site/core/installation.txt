@@ -1,0 +1,3 @@
+Installation Notes:
+
+1. create virtualenv
