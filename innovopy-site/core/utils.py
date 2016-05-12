@@ -220,7 +220,7 @@ def migrate_tags():
         data_obj.save()
 
 def migrate_cpv_codes():
-    f = open("innovonet-migration-2016-05-11/cpv.json", "r")
+    f = open("innovonet-migration-2016-05-11/cpv_code.json", "r")
     d = f.read()
     f.close()
     data_cpvcodes = json.loads(d)
