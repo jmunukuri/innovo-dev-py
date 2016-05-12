@@ -20,7 +20,7 @@
 		{% endfor %}
 		<img src="/media/{{object.image}}">
 		{% for img in object.related_media.all %}
-			<img src="/media/{{img}}">
+			<img src="/media/{{img}}" style="width: 25%">
 		{% endfor %}
 	</div>
 {% endblock page_body_row %}
