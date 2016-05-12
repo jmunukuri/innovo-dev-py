@@ -255,12 +255,12 @@ def migrate_users():
 
 def run_migration_procs():
     migrate_suborgs()
-    # migrate_buildings()
+    migrate_buildings()
     migrate_items()
     migrate_categories()
-    # migrate_tags()
-    # migrate_cpv_codes()
-    # migrate_users()
+    migrate_tags()
+    migrate_cpv_codes()
+    migrate_users()
     print "done."
 
 
