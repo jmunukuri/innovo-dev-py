@@ -47,39 +47,6 @@ class Asset(models.Model):
     serial_no = models.CharField(max_length=256, null=True, blank=True)
     specification = models.TextField(null=True, blank=True)
 
-
-    # date_disposed_of = models.DateTimeField(null=True, blank=True)
-    # date_archived = models.DateTimeField(null=True, blank=True)   
-    # end_of_life = models.DateTimeField(null=True, blank=True)
-    # last_calibration_date = models.DateTimeField(null=True, blank=True)
-    # next_calibration_date = models.DateTimeField(null=True, blank=True) 
-    # PAT = models.DateTimeField(null=True, blank=True)
-    
-    # acronym = models.CharField(max_length=24, null=True, blank=True)
-    # archived = models.IntegerField(null=True, blank=True, default=0)
-    # calibrated = models.CharField(max_length=4, null=True, blank=True)
-    # copyright_notice = models.CharField(max_length=256, null=True, blank=True)
-
-    # embedded_content = models.TextField(null=True, blank=True)
-    # finance_id = models.CharField(max_length=256, null=True, blank=True)
-    # future_upgrades = models.TextField(null=True, blank=True)
-    # is_disposed_of = models.CharField(max_length=5, null=True, blank=True)
-    # is_parent = models.IntegerField(null=True, blank=True, default=0)
-    # last_updated_username = models.CharField(max_length=256, null=True, blank=True)
-    # last_updated_email = models.CharField(max_length=256, null=True, blank=True)
-    # maintenance = models.CharField(max_length=256, null=True, blank=True)
-    # portability = models.CharField(max_length=256, null=True, blank=True) 
-
-    # quantity_detail = models.CharField(max_length=256, null=True, blank=True)
-    # replacement_cost = models.CharField(max_length=256, null=True, blank=True) 
-    # restrictions = models.CharField(max_length=256, null=True, blank=True)
-    # supplier_id = models.IntegerField( null=True, blank=True)
-    # technique = models.CharField(max_length=256, null=True, blank=True)
-    # training_required = models.IntegerField(null=True, blank=True)
-    # training_provided = models.IntegerField(null=True, blank=True)
-    # upgrades = models.TextField(null=True, blank=True)
-    # usergroup = models.CharField(max_length=256, null=True, blank=True)  
-
     def get_as_dict_selected(self, fieldlist=None):
         d = OrderedDict()
         if not fieldlist:

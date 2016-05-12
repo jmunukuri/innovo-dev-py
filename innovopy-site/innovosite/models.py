@@ -3,6 +3,14 @@ from __future__ import unicode_literals
 from django.db import models
 from core.models import DocumentFile
 
+ORG_TYPES = (
+    ('college', 'college'),
+    ('department', 'department'),
+    ('lab', 'lab'),
+    ('research group', 'research group'),
+    ('division', 'division'),
+    ('other', 'other')
+)
 
 class Innovosite(models.Model):
     name = models.CharField(max_length=256)
@@ -24,7 +32,7 @@ class Innovosite(models.Model):
 
 class SubOrganization(models.Model):
     name = models.CharField(max_length=256)
-    org_type = models.CharField(max_length=48)
+    org_type = models.CharField(max_length=48, choices=ORG_TYPES, blank=True)
     description = models.TextField(null=True, blank=True)
     url = models.URLField(null=True, blank=True)
     address = models.TextField(null=True, blank=True)
