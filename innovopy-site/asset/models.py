@@ -27,6 +27,7 @@ class Asset(models.Model):
     comments = models.TextField(null=True, blank=True)
 
     related_media = models.ManyToManyField(DocumentFile, blank=True)
+    
 
     date_added = models.DateTimeField(auto_now_add=True, null=True, blank=True)
     date_updated = models.DateTimeField(null=True, blank=True)

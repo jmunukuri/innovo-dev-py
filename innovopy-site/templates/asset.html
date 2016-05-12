@@ -19,5 +19,8 @@
 
 		{% endfor %}
 		<img src="/media/{{object.image}}">
+		{% for img in object.related_media.all %}
+			<img src="/media/{{img}}">
+		{% endfor %}
 	</div>
 {% endblock page_body_row %}
