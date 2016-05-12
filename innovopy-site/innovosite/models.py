@@ -31,7 +31,7 @@ class SubOrganization(models.Model):
     org_site = models.ForeignKey(Innovosite, related_name = 'suborganizations')
     org_parent = models.ForeignKey('SubOrganization', null=True, blank=True)
 
-    documents = models.ManyToManyField(DocumentFile, related_name='organization_documents')
+    documents = models.ManyToManyField(DocumentFile, related_name='organization_documents', blank=True)
     
     def get_absolute_url(self):
         return reverse('unit', args=[self.id])
@@ -49,7 +49,7 @@ class Building(models.Model):
     lon = models.FloatField(null=True, blank=True)
     building_site = models.ForeignKey(Innovosite)
 
-    documents = models.ManyToManyField(DocumentFile, related_name='building_documents')
+    documents = models.ManyToManyField(DocumentFile, related_name='building_documents', blank=True)
     
     def get_absolute_url(self):
         return reverse('building', args=[self.id])
