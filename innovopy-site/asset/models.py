@@ -89,7 +89,7 @@ class Asset(models.Model):
         return reverse('asset', args=[self.id])
 
     def __unicode__(self):
-        return self.title
+        return self.title or 'no title here'
 
 
 
