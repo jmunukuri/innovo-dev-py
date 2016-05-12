@@ -4,7 +4,7 @@ from django.views.generic import TemplateView, DetailView
 from .models import Asset
 
 custom_asset_property_list = (
-	'title', 'building', 'room', 'short_desc', 'full_desc', 'contact_1_name', 'contact_1_email', 'keywords', 'image',
+	'title', 'building', 'room', 'short_desc', 'full_desc', 'contact_1_name', 'contact_1_email', 'keywords',
 	)
 
 class AssetView(DetailView):
