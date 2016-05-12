@@ -25,7 +25,7 @@ DEBUG = True
 
 ALLOWED_HOSTS = []
 
-USE_TZ = False
+USE_TZ = True
 
 # Database
 # https://docs.djangoproject.com/en/1.9/ref/settings/#databases
